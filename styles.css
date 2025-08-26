@@ -1,0 +1,63 @@
+/* Importación de fuentes de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Reglas CSS personalizadas para mejorar Tailwind */
+.font-montserrat { font-family: 'Montserrat', sans-serif; }
+.font-poppins { font-family: 'Poppins', sans-serif; }
+
+.shadow-3xl {
+    box-shadow: 0 50px 100px -20px rgba(50,50,93,.25), 0 30px 60px -30px rgba(0,0,0,.3);
+}
+
+.gradient-bg {
+    background: linear-gradient(135deg, #f0f4f8 0%, #e3e6e9 100%);
+}
+
+/* Efecto de borde animado para la sección del flyer */
+.animated-border {
+    position: relative;
+    overflow: hidden;
+    background: white; /* Asegura un fondo sólido */
+}
+
+.animated-border::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: conic-gradient(from 180deg at 50% 50%, #3b82f6 0deg, #60a5fa 90deg, #3b82f6 180deg, #60a5fa 270deg, #3b82f6 360deg);
+    animation: rotate 4s linear infinite;
+    z-index: -1;
+    border-radius: 1.5rem;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Estilo de botón con efecto de resplandor (glow) */
+.glow-btn {
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.glow-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background: linear-gradient(45deg, #3b82f6, #60a5fa, #3b82f6);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: -1;
+}
+.glow-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(59, 130, 246, 0.4);
+}
+.glow-btn:hover::before {
+    opacity: 1;
+    filter: blur(8px);
+}
